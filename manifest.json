@@ -26,8 +26,6 @@
     "notifications",
     "tabs",
     "storage",
-    "https://*/*",
-    "http://*/*",
     "declarativeContent",
     "webNavigation",
     "activeTab"
