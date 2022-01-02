@@ -19,7 +19,7 @@
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://code.jquery.com https://cdn.jsdelivr.net; object-src 'self'",
   "page_action": {
     "default_icon": "icons/icon.png",
-    "default_title": "page action demo",
+    "default_title": "SparkyDash",
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
@@ -48,6 +48,7 @@
     }
   ],
    "web_accessible_resources": [
-     "sparky.html"
+     "sparky.html",
+     "src/inject/inject.js"
    ]
 }
