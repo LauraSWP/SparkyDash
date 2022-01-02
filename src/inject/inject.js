@@ -1,45 +1,5 @@
 chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-		var current = 1;
-		var position = 0;
-		var speed = 25;
-		var pikachu = document.getElementById("pikachu");
 
-		function update() {
-
-				if (current == 1) {
-					pikachu.src = "https://sparkydash.b-cdn.net/pikachu-running.gif";
-				}
-				if (current == 2) {
-					pikachu.src = "https://sparkydash.b-cdn.net/pikachu-running.gif";
-				}
-				if (current == 3) {
-					pikachu.src = "https://sparkydash.b-cdn.net/pikachu-running.gif";
-				}
-				if (current == 4) {
-					pikachu.src = "https://sparkydash.b-cdn.net/pikachu-running.gif";
-				}
-
-				current = current + 1;
-				if (current > 4) {
-						current = 1;
-				}
-
-				position = position + speed;
-				pikachu.style.left = position + "px";
-
-			if (position > 1980) {
-				speed = -speed;
-				pikachu.style.transform = "scaleX(-1)";
-			}
-
-			if (position < 0) {
-				speed = -speed;
-				pikachu.style.transform = "scaleX(1)";
-			}
-		}
-
-		setInterval(update, 250);
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
 
