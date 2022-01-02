@@ -1,27 +1,24 @@
 {
   "name": "SparkyDash",
-  "version": "0.0.3",
+  "version": "1.0",
   "manifest_version": 2,
-  "description": "",
-  "update_url": "https://github.com/LauraSWP/SparkyDash.git",
+  "description": "This is the ToolKit any Pokemon player would use. Get the details you need, the moment you need them!",
+  "homepage_url": "https://github.com/LauraSWP/SparkyDash.git",
   "icons": {
-    "16": "icons/icon16.png",
+    "16": "icons/icon.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
   "background": {
     "scripts": [
-      "src/bg/background.js",
-      "src/page_action/pokemon.js",
-      "src/page_action/page_action.js"
+      "src/bg/background.js"
     ],
     "persistent": true
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://code.jquery.com; object-src 'self'",
-  "options_page": "src/options_custom/index.html",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://code.jquery.com https://cdn.jsdelivr.net; object-src 'self'",
   "page_action": {
-    "default_icon": "icons/icon19.png",
+    "default_icon": "icons/icon.png",
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
   },
@@ -46,18 +43,11 @@
       "js": [
         "src/inject/inject.js",
         "js/jquery/jquery.min.js",
-        "content.js",
-        "src/page_action/page_action.js"
+        "content.js"
       ]
-    },
-    {
-      "matches": ["https://*/*", "http://*/*", "file:///*/*"],
-      "run_at": "document_idle",
-      "js": ["src/page_action/page_action.js"]
     }
   ],
    "web_accessible_resources": [
-     "src/page_action/page_action.js",
      "sparky.html"
    ]
 }

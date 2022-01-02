@@ -1,516 +1,201 @@
 <!doctype html>
-<style type="text/css">
-/* STYLES FOR HIDE AND SHOW ELEMENTS */
-	.hide {
-display:none;
-  -webkit-transition: opacity 600ms, visibility 600ms;
-  transition: opacity 600ms, visibility 600ms;
-	}
-	.show {
-display:block;
--webkit-transition: opacity 600ms, visibility 600ms;
-transition: opacity 600ms, visibility 600ms;
-	}
-
-/* STYLES FOR THE SEARCH autocomplete */
-	.ui-autocomplete {
-    max-height: 80px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.ui-autocomplete {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  list-style: none;
-  font-size: 14px;
-  text-align: left;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
-}
-
-.ui-autocomplete > li > div {
-  display: block;
-  padding: 3px 20px;
-  clear: both;
-  font-weight: normal;
-  line-height: 1.42857143;
-  color: #333333;
-  white-space: nowrap;
-}
-
-.ui-state-hover,
-.ui-state-active,
-.ui-state-focus {
-  text-decoration: none;
-  color: #262626;
-  background-color: #f5f5f5;
-  cursor: pointer;
-}
-
-.ui-helper-hidden-accessible {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-/* STYLE FOR THE TOP TITLE */
-@font-face {
-  font-family: Lato;
-  src: url("../font/Lato-Regular.ttf");
-}
-h1 {
-    color: #ffd601;
-    font-family: 'Lato';
-    letter-spacing: 5px;
-    animation: text-flicker 3s linear infinite;
-    -webkit-text-stroke: 0.1px #fff490;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 44px;
-}
-
-#offset {
-  animation: letter-flicker 2s linear infinite;
-}
-
-@keyframes text-flicker {
-  0% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-  2% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  8% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  9% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  12% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  20% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  25% {
-    opacity:0.3;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  30% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-  70% {
-    opacity:0.7;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-  72% {
-    opacity:0.2;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-  77% {
-    opacity:.9;
-    text-shadow: 0px 0px 29px #fdf6bd;
-  }
-  100% {
-    opacity:.9;
-    text-shadow: 0px 0px 29px #fdf4a4;
-  }
-}
-
-@keyframes border-flicker {
-  0% {
-    opacity:0.1;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-  2% {
-    opacity:1;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-  4% {
-    opacity:0.1;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-
-  8% {
-    opacity:1;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-  70% {
-    opacity:0.7;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-  100% {
-    opacity:1;
-    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
--moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
-  }
-}
-
-@keyframes letter-flicker {
-  0% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  2% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  4% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-
-  19% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  21% {
-    opacity:0.1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  23% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-
-  80% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  83% {
-    opacity:0.4;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-  87% {
-    opacity:1;
-    text-shadow: 0px 0px 29px #ffe81d;
-  }
-}
-/* BODY STYLES */
-body {
-    margin: 0px;
-}
-#mainPopup {
-    padding: 30px;
-    height: 100%;
-    width: 400px;
-    font-family: Lato;
-    margin: 0px;
-}
-div#text {
-    top: -40px;
-    width: 100%;
-    margin: 0px;
-    border-bottom: 1px solid #ffffff26;
-    position: relative;
-    height: 70px;
-}
-div#content {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 2px 10px 17px 2px #00000026;
-}
-body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-    height: 100%;
-    border: 1px solid #ffffff8a;
-    min-height: 400px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-/* STYLE FOR THE OPTION SWITCH */
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-.onoffswitch {
-    position: relative; width: 112px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-.onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid #EEEEEE;
-    border-radius: 50px;
-    height: 25px;
-    width: 50px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 67px; padding: 0; line-height: 67px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "";
-    padding-left: 10px;
-    background-color: #EEEEEE; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block;
-    width: 15px;
-    margin: 5.5px;
-    background: #4D4D4D;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    border: 2px solid #EEEEEE;
-    border-radius: 50px;
-    transition: all 0.3s ease-in 0s;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 60px;
-    background-color: #27A1CA;
-}
-/* POKEMON ART STYLE */
-.pokemon-images img {
-    width: 100px;
-    height: auto;
-}
-.pokemon-images .animated {
-    width: 100px;
-    height: auto;
-}
-/* POKE STATS TABLE */
-#find .vitals-table tr:nth-child(7) {
-    display: none;
-}
-#find a {
-	pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-}
-.type-icon {
-	 font-size: 15px;
-	 font-family: 'Trebuchet MS';
-	 font-weight: bold;
-	 width: 6em;
-	 text-align: center;
-	 display: inline-block;
-	 border: 0.1em solid transparent;
-	 padding: 0.1em 0.2em 0.2em;
-	 margin: 0.1em 0.015em;
-	 border-radius: 0.4em;
-}
- .type-icon {
-	 text-transform: uppercase;
-	 font-size: 0.8em;
-	 color: white;
-	 text-shadow: 0em 0em 0.2em black;
-}
- .type-normal {
-	 background-color: #a8a878;
-	 border-top-color: #c6c6a7;
-	 border-bottom-color: #818153;
-}
- .type-fire {
-	 background-color: #78c850;
-	 border-top-color: #a5da8a;
-	 border-bottom-color: #549b31;
-}
- .type-fighting {
-	 background-color: #c03028;
-	 border-top-color: #dc5f58;
-	 border-bottom-color: #81201b;
-}
- .type-water {
-	 background-color: #6890f0;
-	 border-top-color: #aec3f7;
-	 border-bottom-color: #225de9;
-}
- .type-poison {
-	 background-color: #a040a0;
-	 border-top-color: #c369c3;
-	 border-bottom-color: #692a69;
-}
- .type-electric {
-	 background-color: #f8d030;
-	 border-top-color: #fbe17a;
-	 border-bottom-color: #d4ab07;
-}
- .type-ground {
-	 background-color: #e0c068;
-	 border-top-color: #eddaa7;
-	 border-bottom-color: #d1a42b;
-}
- .type-grass {
-	 background-color: #78c850;
-	 border-top-color: #a5da8a;
-	 border-bottom-color: #549b31;
-}
- .type-flying {
-	 background-color: #a890f0;
-	 border-top-color: #ddd3f9;
-	 border-bottom-color: #734de7;
-}
- .type-ice {
-	 background-color: #98d8d8;
-	 border-top-color: #cfeded;
-	 border-bottom-color: #61c3c3;
-}
-.type-bug {
-	 background-color: #a8b820;
-	 border-top-color: #cfdf46;
-	 border-bottom-color: #6d7715;
-}
- .type-psychic {
-	 background-color: #f85888;
-	 border-top-color: #fba1bc;
-	 border-bottom-color: #f50f54;
-}
- .type-rock {
-	 background-color: #b8a038;
-	 border-top-color: #d2bf6b;
-	 border-bottom-color: #7d6d26;
-}
- .type-dragon {
-	 background-color: #7038f8;
-	 border-top-color: #a582fb;
-	 border-bottom-color: #4608dc;
-}
- .type-ghost {
-	 background-color: #705898;
-	 border-top-color: #9884b8;
-	 border-bottom-color: #4c3c68;
-}
-.type-dark {
-	 background-color: #705848;
-	 border-top-color: #9d7d67;
-	 border-bottom-color: #41332a;
-}
- .type-steel {
-	 background-color: #b8b8d0;
-	 border-top-color: #e6e6ee;
-	 border-bottom-color: #8a8ab2;
-}
- .type-fairy {
-	 background-color: #ffb7fa;
-	 border-top-color: #fff;
-	 border-bottom-color: #ff6bf5;
-}
-
-</style>
 <head>
 <script src="../../js/jquery/jquery.min.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <link href="../../src/page_action/page_action.css" rel="stylesheet">
+  <!-- Boostrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- END Boostrap -->
+<!-- lyltip -->
+<link rel="stylesheet" href="../../js/lyltip/lyltip.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="../../js/lyltip/lyltip.js"></script>
+<script src="../../js/sticky/jquery.sticky.js"></script>
 </head>
 <body>
 <div id="mainPopup">
 	<div id="text">
-  <h1>Sp<span id="offset">a</span>rky<span id="offset">T</span>omm</h1>
+  <h1>Sp<span id="offset">a</span>rky<span id="offset">D</span>ash</h1>
 </div>
-<div id="content">
-<p>A nice SparkyDash! HELO DOLLY</p>
-<div id="search" class="hide">
-<label for="nme"><span>Search Pokemon!</span></label>
-<input id="tags" name="pokemon" type="text" placeholder="">
-<a id="pokesearch" class="btn" href="https://pokemondb.net/pokedex">Full PokeDex</a>
-<div id="pokedex">
-<div class="pokemon-images">
-<img id="sprite" class="show" alt="" src=""></img>
-<img id="normalbox" class="hide animated" alt="" src=""></img>
-<img id="shinybox" class="hide animated" alt="" src=""></img>
-<div id="find" class="hide"></div>
-<div id="pokeart" class="hide">
-<input type="submit" id="statshow" class="btn" value="Stats"></input>
-<input type="submit" id="spriteshow" class="btn" value="Art"></input>
-<input type="submit" id="normalshow" class="btn" value="Animated"></input>
-<input type="submit" id="shinyshow" class="btn" value="Shiny"></input>
-</div>
-<div class="extras">
-<input type="submit" id="typeshow" class="btn" value="Types"></input>
+<div title="Do you want to add a gif here? Send it on discord!" class="header image">
+  <img id="randomImages" alt="#">
 </div>
 <div id="types" class="hide">
-	<select id="poketype">
-  <option value="/../src/img/fire.png">Fire</option>
-	<option value="/../src/img/IMAGE_NOT_FOUND.png">SS</option>
+  <div class="type-container">
+  <a  title="Close" data-tooltip-pos="right" class="tooltip tooltip-warning"><input src="/../../src/img/close.png" type="image" id="typeclose" class="btn" value="Types"></input></a>
+  <h2 id="typeh2">Select a Pokemon Type</h2>
+  <p> This tool will display a Pokemon Type Table showing the Strenghts and Weaknesses.</p>
+<button id="normal"  href="typesNormal" class="type-icon type-normal">Normal</button>
+<button id="fire" href="typesFire" class="type-icon type-fire">Fire</button>
+<button id="water"  href="typesWater" class="type-icon type-water">Water</button>
+<button id="electric"  href="typesElectric" class="type-icon type-electric">Electric</button>
+<button id="grass" href="typesGrass" class="type-icon type-grass">Grass</button>
+<button id="ice" href="typesIce" class="type-icon type-ice">Ice</button>
+<button id="fighting" href="typesFight" class="type-icon type-fighting">Fighting</button>
+<button id="poison" href="typesPoison" class="type-icon type-poison">Poison</button>
+<button id="ground" href="typesGround" class="type-icon type-ground">Ground</button>
+<button id="flying" href="typesFlying" class="type-icon type-flying">Flying</button>
+<button id="psychic" href="typesFlying" class="type-icon type-psychic">Psychic</button>
+<button id="bug" href="typesBug" class="type-icon type-bug">Bug</button>
+<button id="rock" href="typesRock" class="type-icon type-rock">Rock</button>
+<button id="ghost" href="typesRock" class="type-icon type-ghost">Ghost</button>
+<button id="dragon" href="typesDragon" class="type-icon type-dragon">Dragon</button>
+<button id="dark" href="typesDark" class="type-icon type-dark">Dark</button>
+<button id="steel" href="typesSteel" class="type-icon type-steel">Steel</button>
+<button id="fairy" href="typesFairy" class="type-icon type-fairy">Fairy</button>
+
 </select>
 <img src="" name="poketype"/>
+<div id="typesNormal" class="hide"></div>
+<div id="typesFire" class="hide"></div>
+<div id="typesWater" class="hide"></div>
+<div id="typesElectric" class="hide"></div>
+<div id="typesGrass" class="hide"></div>
+<div id="typesIce" class="hide"></div>
+<div id="typesFight" class="hide"></div>
+<div id="typesPoison" class="hide"></div>
+<div id="typesGround" class="hide"></div>
+<div id="typesFlying" class="hide"></div>
+<div id="typesPsychic" class="hide"></div>
+<div id="typesBug" class="hide"></div>
+<div id="typesRock" class="hide"></div>
+<div id="typesGhost" class="hide"></div>
+<div id="typesDragon" class="hide"></div>
+<div id="typesDark" class="hide"></div>
+<div id="typesSteel" class="hide"></div>
+<div id="typesFairy" class="hide"></div>
+
 </div>
 </div>
+<div id="content">
+<h2 class="dash">Welcome to SparkyDash! </h2>
+<p class="head-box">Check the different options below. You can do a quick Pokemon search, set up your ShinyDex and much more!</p>
+<div id="search" class="show">
+<label for="nme"><h3>What Pokemon are you looking for?</h3></label>
+    <div id="start-point"></div>
+<p class="small-text">(Please type a name before selecting an option.)</p>
+
+<div id="search-pokemon" class="search-box input-icons">
+  <i class="fa fa-search icon"></i>
+<input id="tags" name="pokemon" type="text" placeholder="Search for Pokemon"></input><input title="Search Pokemon!" name="submit" type="submit" value="Go!" class="primary-button submit"></input>
+<div class="full-pokedex">
+<a id="pokesearch" title="Check Full Pokedex" class="primary-button tooltip tooltip-warning" href="https://pokemondb.net/pokedex/all">Full Pokedex</a>
 </div>
 </div>
-<div class="options">
-	<input type="submit" id="btn-search" class="btn" value="PokeDex"></input>
-<a id="shinydex" class="btn" href="https://pokedextracker.com/u/SparkyTomm/shiny-dex">ShinyDex</a>
-<a id="discord" class="btn" href="https://discord.gg/XBByxTW73N">Discord</a>
+
+
+<div id="pokedex">
+  <div id="pokeart" class="show">
+
+  <a id="stats-button" href="#start-point" title="Show Summary and Stats"  class="hide tooltip tooltip-warning"><input type="image"  id="statshow" src="/../../src/img/stats.png" class="btn" value="Stats"></input></a>
+  <a id="moves-button" href="#start-point" title="Show this Pokemon Moves"  class="hide tooltip tooltip-warning"><input type="image"  id="moveshow" src="/../../src/img/moves.png" class="btn" value="Moves"></input></a>
+  <a id="location-button" href="#start-point" title="Show this Pokemon Location"  class="hide tooltip tooltip-warning"><input type="image"  id="evoshow" src="/../../src/img/location.png" class="btn" value="location"></input></a>
+
+
+
+<a id="allmoves-button" href="#start-point" title="Search Pokemon Moves"  class="show tooltip tooltip-warning"><input type="image"  id="allmoveshow" src="/../../src/img/allmoves.png" class="btn" value="AllMoves"></input></a>
+<a id="allabilities-button" href="#start-point" title="Search Pokemon Abilities"  class="show tooltip tooltip-warning"><input type="image"  id="allabilitiesshow" src="/../../src/img/allabilities.png" class="btn" value="AllAbilities"></input></a>
+<a id="items-button" href="#start-point" title="Search Pokemon Items"  class="show tooltip tooltip-warning"><input type="image"  id="itemshow" src="/../../src/img/items.png" class="btn" value="Items"></input></a>
+
+  <a href="#types" title="Show All Types Weaknesses and Strenghts"  class="tooltip tooltip-warning"><input src="/../../src/img/types.png" type="image" id="typeshow" class="btn" value="Types"></input></a>
+  </div>
+<div class="pokemon-images hide" id="pokemon-images">
+<img id="sprite" class="show pokemon-image" alt="" src=""></img>
+<img id="normalbox" class="hide animated pokemon-image" alt="" src=""></img>
+<img id="shinybox" class="hide animated pokemon-image" alt="" src=""></img>
+<a href="#start-point" title="Show Art" class="btn tooltip tooltip-warning"><input type="image"  id="spriteshow" src="/../../src/img/art.png" class="btn" value="Art"></input></a>
+<a href="#start-point" title="Show Animated Sprite" class="btn tooltip tooltip-warning"><input type="image"  id="normalshow"  src="/../../src/img/animated.png" class="btn" value="Animated"></input></a>
+<a href="#start-point" title="Show Shiny Sprite" data-tooltip-pos="right" class="btn tooltip tooltip-warning"><input type="image"  id="shinyshow" src="/../../src/img/shiny.png" class="btn" value="Shiny"></input></a>
 </div>
-<div class="buttons">
-<div class="onoffswitch">
-<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-<label class="onoffswitch-label" for="myonoffswitch">
-    <span class="onoffswitch-inner"></span>
-    <span class="onoffswitch-switch"></span>
+<div id="allabilitiesbox" class="hide box">
+  <div id="search-abilities" class="search-box input-icons">
+  <i class="fa fa-search icon"></i>
+  <input id="abilities-input" name="abilities" type="text" placeholder="Search for Abilities"></input>
+  </div>
+  <div id="allabilities-stats"></div>
+  <div id="allabilities-pokemon"></div>
+</div>
+<div id="allmovesbox" class="hide box">
+  <div id="search-moves" class="search-box input-icons">
+  <i class="fa fa-search icon"></i>
+  <input id="moves-input" name="moves" type="text" placeholder="Search for Moves"></input>
+  </div>
+  <div id="allmoves"></div>
+</div>
+<div id="itemsbox" class="hide box">
+  <div id="search-moves" class="search-box input-icons">
+  <i class="fa fa-search icon"></i>
+  <input id="items-input" name="items" type="text" placeholder="Search for Items"></input>
+  </div>
+  <div id="items">
+</div>
+  <div id="items-description">
+  </div>
+</div>
+<div id="find" class="show">
+  <div id="moves" class="hide box"></div>
+  <div id="location" class="hide box"></div>
+  <div id="summary" class="hide box"></div>
+  <div id="stats" class="hide box"></div>
+  <div id="training" class="hide box"></div>
+  <div id="breeding" class="hide box"></div>
+
+</div>
+<div id="error" class="hide box"> <img src="/../../src/img/error.png">Ops! Are you confused? Try searching again or use a <a title="If held by a Pokemon, it recovers from confusion." href="https://pokemondb.net/item/persim-berry">Persim Berry</a>.</div>
+
+<div class="extras">
+
+
+</div>
+
+</div>
+</div>
+<!-- SELECT CURSOR -->
+<div id="creditsShow" class="hide box">
+  <a class="tooltip tooltip-warning"><input src="/../../src/img/close.png" type="image" id="creditsclose" class="btn" value=""></input></a>
+<h2>Credits</h2>
+<p>This Extension was developed by <a href="https://www.twitch.tv/kgumiho">KGuMiHo</a> and is meant to be a ToolKit for all Pokemon fans.
+<ul>
+  <li>This extension wouldn't be possible without the help of <a title="Thanks for all your suggestions!" href="https://linktr.ee/PurestormTV">Purestorm</a>, make sure to follow him!</li>
+  <li>The content of this extension comes from the amazing website <a title="Amazing website with lots of content!" href="https://pokemondb.net/">PokemonDB.</a></li>
+  <li>Pokemon is a trademark owned by Nintendo and this extension is not related to the official Pokemon creators, this is a fan-made extension and is completely free.</li>
+  <li>This extension is Open-Source so you can check the source files on <a href="https://github.com/LauraSWP/SparkyDash">GitHub.</a></li>
+</ul>
+</p>
+</div>
+<form class="hide" id="cursors">
+  <p> Select a cursor to apply to your pages.</p>
+  <a  data-tooltip-pos="right" class="tooltip tooltip-warning"><input src="/../../src/img/close.png" type="image" id="cursorclose" class="btn" value="Cursors"></input></a>
+<input type="radio" id="pikachuCursor" name="cursor" class="btn"></input>
+<label for="pikachuCursor">
+  <img class="btn" src="https://sparkydash.b-cdn.net/pikachu-point.png">
 </label>
+<input type="radio" id="minusCursor" name="cursor" class="btn"></input>
+<label for="minusCursor">
+  <img class="btn"  src="https://sparkydash.b-cdn.net/minus-point.png">
+</label>
+<input type="radio" id="chimcharCursor" name="cursor" class="btn"></input>
+<label for="chimcharCursor">
+  <img class="btn"  src="https://sparkydash.b-cdn.net/chimchar-point.png">
+</label>
+<input type="radio" id="default" name="cursor" class="btn"></input>
+<label for="default">
+  <img class="btn"  src="https://sparkydash.b-cdn.net/no-entry.png">
+</label>
+</form>
+<div class="buttons">
+  <button id="cursorSelect" type="button" class="btn primary-button" href="#cursors">Select Cursor</button>
+
+<div class="onoffswitch">
+<img src="/../../src/img/settings.png" data-tooltip-pos="right" data-tooltip="Activates the PokeStyling (Still Under Development)" class="tooltip tooltip-warning">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+</div>
+<div class="social-media">
+<a id="discord" title="Join our Discord!" class="btn" href="https://discord.gg/XBByxTW73N"><img src="/../../src/img/discord-icon.png"></a>
+<a id="twitch" title="Follow SparkyTomm on Twitch!" class="btn" href="https://www.twitch.tv/sparkytomm"><img src="/../../src/img/twitch-icon.png"></a>
+<button id="credits" type="button" class="btn primary-button" href="">Credits</button>
 </div>
 </div>
 </div>

@@ -1,6 +1,40 @@
-.sparky body {
-background: red !important;
+.sparky h1:before {
+    background-image: url(https://sparkydash.b-cdn.net/title-pikachu.png) !important;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    padding: 30px;
+    content: "";
+    position: relative;
+    top: 25px;
 }
-.sparky h1 {
-background: red !important;
+/* CURSOR PIKACHU */
+.pikachu {
+  cursor: url(https://sparkydash.b-cdn.net/pikachu-point.png), auto !important;
+}
+.pikachu a, .pikachu button, .pikachu input {
+  cursor: url(https://sparkydash.b-cdn.net/pikachu-click.png), auto !important;
+}
+/* CURSOR MINUS */
+.minus {
+  cursor: url(https://sparkydash.b-cdn.net/minus-point.png), auto !important;
+}
+.minus a, .minus button, .minus input {
+  cursor: url(https://sparkydash.b-cdn.net/minus-click.png), auto !important;
+}
+/* CURSOR CHIMCHAR */
+.chimchar {
+  cursor: url(https://sparkydash.b-cdn.net/chimchar-point.png), auto !important;
+}
+.chimchar a, .chimchar button, .chimchar input {
+  cursor: url(https://sparkydash.b-cdn.net/chimchar-click.png), auto !important;
+}
+#pikachu {
+    position: relative;
+    width: 90px;
+    height: 70px;
+}
+img#pikachu {
+    bottom: 0;
+    position: fixed;
 }
