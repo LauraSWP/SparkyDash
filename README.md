@@ -1,5 +1,6 @@
 # SparkyDash
  SparkyDashboard - Pokemon ToolKit (fanmade)
+ <img src="https://sparkydash.b-cdn.net/Imagen%20de%20iOS.png">
 # How to Install
 This Extension is still under review to be published on Chrome Store.
 1. You can install it manually by clicking at the [CODE] button at the top of this page.
