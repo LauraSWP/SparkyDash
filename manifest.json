@@ -23,11 +23,7 @@
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
-    "notifications",
-    "tabs",
     "storage",
-    "declarativeContent",
-    "webNavigation",
     "activeTab"
   ],
   "content_scripts": [
