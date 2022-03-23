@@ -18,6 +18,5 @@ This Extension is still under review to be published on Chrome Store.
   <li>The content of this extension comes from the amazing website <a title="Amazing website with lots of content!" href="https://pokemondb.net/">PokemonDB.</a></li>
   <li>Pokemon is a trademark owned by Nintendo and this extension is not related to the official Pokemon creators, this is a fan-made extension and is completely free.</li>
   <li>This extension is Open-Source so you can check the source files on <a href="https://github.com/LauraSWP/SparkyDash">GitHub.</a></li>
-  <li>Follow <a href="https://www.twitch.tv/sparkytomm">SparkyTomm</a> for Pokemon related Streams on Twitch!</li>
 </ul>
 </p>
